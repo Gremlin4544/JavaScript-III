@@ -12,17 +12,52 @@
 // Principle 1
 
 // code example for Window Binding
+function movie() {
+    console.log(this.genre);
+}
 
+var genre = 'action';
+
+movie();
 
 // Principle 2
 
 // code example for Implicit Binding
-
+let myTruck = {
+    make: 'Dodge',
+    model: '1500',
+    version:function(){
+        console.log(this.make);
+    }
+}
+myTruck.version();
 
 // Principle 3
 
 // code example for Explicit Binding
+//call
+function faveMovie(){
+    console.log(this.name);
+}
+
+let myFaveMovie = {
+    name: 'Blade',
+    genre: 'horror',
+}
+
+let otherFaveMovie = {
+    name: 'The Hobbit',
+    genre: 'fantasy',
+}
+faveMovie.call(myFaveMovie);
+faveMovie.call(otherFaveMovie);
 
 // Principle 4
 
 // code example for New Binding
+function Bestmovie(quote) {
+    this.phrase = quote;
+}
+let myBestmovie = new Bestmovie('You\'re supposed to be dead.');
+
+console.log(myBestmovie.phrase);
